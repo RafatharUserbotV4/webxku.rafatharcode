@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <title>RafatharCode - Hosting & Layanan Digital</title>
+    <meta content="RafatharCode menyediakan kebutuhan hosting, VPS, panel, dan bot WhatsApp" name="description">
+    <meta content="hosting, vps, panel, bot whatsapp, rest api, rafatharCode" name="keywords">
+    <link href="https://files.catbox.moe/1mrgbt.jpg" rel="icon">
+    <link href="https://files.catbox.moe/1mrgbt.jpg" rel="apple-touch-icon">
+    
+    <!-- Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9.0.3/swiper-bundle.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --success: #10b981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        #hero {
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content h1 span {
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .hero-content h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(37, 99, 235, 0.2);
+            z-index: -1;
+        }
+        
+        .hero-content h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .hero-img {
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 35px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(37, 99, 235, 0.4);
+        }
+        
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title p::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+        
+        /* Pricing Cards */
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+        }
+        
+        .pricing-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 25px 20px;
+            color: white;
+            text-align: center;
+        }
+        
+        .pricing-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .pricing-header .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        
+        .pricing-body {
+            padding: 25px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .feature-list li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--success);
+        }
+        
+        .btn-buy {
+            display: block;
+            width: 100%;
+            background: var(--light);
+            color: var(--primary);
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-buy:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .recommended-badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+            box-shadow: 0 3px 10px rgba(6, 182, 212, 0.3);
+        }
+        
+        /* Contact Section */
+        #contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+        }
+        
+        .contact-info {
+            display: flex;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            background: rgba(255, 255, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .contact-details h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+         .music-toggle {
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 15px;
+        }
+        
+        .music-toggle:hover {
+            color: var(--secondary);
+            transform: scale(1.1);
+        }
+        
+        .music-toggle .fa-volume-high {
+            display: inline;
+        }
+        
+        .music-toggle .fa-volume-xmark {
+            display: none;
+        }
+        
+        .music-toggle.muted .fa-volume-high {
+            display: none;
+        }
+        
+        .music-toggle.muted .fa-volume-xmark {
+            display: inline;
+        }
+        /* Payment Section */
+#payment-methods .pricing-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#payment-methods .pricing-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.copy-btn {
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+  <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span>Rafathar</span>Code
+            </a>
+             <button id="music-toggle" class="music-toggle" title="Putar/hentikan musik">
+        <i class="fas fa-volume-high"></i>
+        <i class="fas fa-volume-xmark"></i>
+      </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#hero">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-1 order-2">
+                <div class="hero-content">
+                    <h1 data-aos="fade-up">Solusi Hosting <span>Profesional</span></h1>
+                    <h2 data-aos="fade-up" data-aos-delay="100">RafatharCode menyediakan kebutuhan hosting, VPS, panel, dan layanan digital berkualitas tinggi dengan harga terjangkau</h2>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <a href="#pricing" class="btn btn-primary">Lihat Layanan</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-2 order-1 text-center" data-aos="fade-left">
+                <!-- Perubahan dilakukan di sini -->
+                <img src="https://files.catbox.moe/1mrgbt.jpg" class="img-fluid hero-img rounded-lg" alt="Hosting Solution">
+            </div>
+        </div>
+    </div>
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#0ea5e9"></path>
+        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#0ea5e9"></path>
+        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#0ea5e9"></path>
+    </svg>
+</section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-5">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Layanan Kami</h2>
+                <p>Solusi Terbaik untuk Kebutuhan Digital Anda</p>
+            </div>
+
+            <!-- VPS Section -->
+<div class="mb-5">
+    <h3 class="text-center mb-4 fw-bold text-primary" data-aos="fade-up">Paket VPS</h3>
+    <div class="row g-4">
+        <!-- VPS Card 1 - 1GB/1 Core -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BASIC</h3>
+                    <div class="price">Rp15.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>1GB RAM</li>
+                        <li>1 CORE CPU</li>
+                        <li>20GB DISK</li>
+                        <li>1TB BANDWIDTH</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20VPS%0A*RAM%3A*%201GB%0A*CPU%3A*%201CORE%0A*DISK%3A*%2020GB%0A*BANDWIDTH%3A*%201TB%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp15.000" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- VPS Card 2 - 2GB/1 Core -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BASIC</h3>
+                    <div class="price">Rp25.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>2GB RAM</li>
+                        <li>1 CORE CPU</li>
+                        <li>50GB DISK</li>
+                        <li>2TB BANDWIDTH</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20VPS%0A*RAM%3A*%202GB%0A*CPU%3A*%201CORE%0A*DISK%3A*%2050GB%0A*BANDWIDTH%3A*%202TB%0A*ID%20PESANAN%3A*%20002%0A*NOMINAL%3A*%20Rp25.000" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Paket Baru: 2GB/2 Core -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>STANDARD</h3>
+                    <div class="price">Rp30.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>2GB RAM</li>
+                        <li>2 CORE CPU</li>
+                        <li>60GB DISK</li>
+                        <li>3TB BANDWIDTH</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20VPS%0A*RAM%3A*%202GB%0A*CPU%3A*%202CORE%0A*DISK%3A*%2060GB%0A*BANDWIDTH%3A*%203TB%0A*ID%20PESANAN%3A*%20003%0A*NOMINAL%3A*%20Rp30.000" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- VPS Card 3 - 4GB/2 Core -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>STANDARD</h3>
+                    <div class="price">Rp35.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>4GB RAM</li>
+                        <li>2 CORE CPU</li>
+                        <li>80GB DISK</li>
+                        <li>4TB BANDWIDTH</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20VPS%0A*RAM%3A*%204GB%0A*CPU%3A*%202CORE%0A*DISK%3A*%2080GB%0A*BANDWIDTH%3A*%204TB%0A*ID%20PESANAN%3A*%20004%0A*NOMINAL%3A*%20Rp35.000" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Paket Baru: 8GB/4 Core -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>PROFESSIONAL</h3>
+                    <div class="price">Rp55.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>8GB RAM</li>
+                        <li>4 CORE CPU</li>
+                        <li>160GB DISK</li>
+                        <li>8TB BANDWIDTH</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20VPS%0A*RAM%3A*%208GB%0A*CPU%3A*%204CORE%0A*DISK%3A*%20160GB%0A*BANDWIDTH%3A*%208TB%0A*ID%20PESANAN%3A*%20005%0A*NOMINAL%3A*%20Rp55.000" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Paket Baru: 16GB/4 Core -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>PROFESSIONAL</h3>
+                    <div class="price">Rp65.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>16GB RAM</li>
+                        <li>4 CORE CPU</li>
+                        <li>320GB DISK</li>
+                        <li>16TB BANDWIDTH</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20VPS%0A*RAM%3A*%2016GB%0A*CPU%3A*%204CORE%0A*DISK%3A*%20320GB%0A*BANDWIDTH%3A*%2016TB%0A*ID%20PESANAN%3A*%20006%0A*NOMINAL%3A*%20Rp65.000" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Paket Baru: 32GB/8 Core -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>ENTERPRISE</h3>
+                    <div class="price">Rp75.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>32GB RAM</li>
+                        <li>8 CORE CPU</li>
+                        <li>640GB DISK</li>
+                        <li>32TB BANDWIDTH</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20VPS%0A*RAM%3A*%2032GB%0A*CPU%3A*%208CORE%0A*DISK%3A*%20640GB%0A*BANDWIDTH%3A*%2032TB%0A*ID%20PESANAN%3A*%20007%0A*NOMINAL%3A*%20Rp75.000" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Panel Section -->
+            <div class="mb-5">
+    <h3 class="text-center mb-4 fw-bold text-primary" data-aos="fade-up">Paket Panel</h3>
+    <div class="row g-4">
+        <!-- Panel Card 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BASIC 1</h3>
+                    <div class="price">Rp1.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>1GB RAM</li>
+                        <li>35% CPU</li>
+                        <li>1GB DISK</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%201GB%0A*CPU%3A*%2040%25%0A*DISK%3A*%201GB%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp1.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Panel Card 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BASIC 2</h3>
+                    <div class="price">Rp2.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>2GB RAM</li>
+                        <li>50% CPU</li>
+                        <li>2GB DISK</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%202GB%0A*CPU%3A*%2080%25%0A*DISK%3A*%202GB%0A*ID%20PESANAN%3A*%20002%0A*NOMINAL%3A*%20Rp2.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Panel Card 3 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BASIC 3</h3>
+                    <div class="price">Rp3.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>3GB RAM</li>
+                        <li>60% CPU</li>
+                        <li>3GB DISK</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%203GB%0A*CPU%3A*%2060%25%0A*DISK%3A*%203GB%0A*ID%20PESANAN%3A*%20003%0A*NOMINAL%3A*%20Rp3.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Panel Card 4 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BASIC 4</h3>
+                    <div class="price">Rp4.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>4GB RAM</li>
+                        <li>70% CPU</li>
+                        <li>4GB DISK</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%204GB%0A*CPU%3A*%2070%25%0A*DISK%3A*%204GB%0A*ID%20PESANAN%3A*%20004%0A*NOMINAL%3A*%20Rp4.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Panel Card 5 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BASIC 5</h3>
+                    <div class="price">Rp5.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>5GB RAM</li>
+                        <li>80% CPU</li>
+                        <li>5GB DISK</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%205GB%0A*CPU%3A*%2080%25%0A*DISK%3A*%205GB%0A*ID%20PESANAN%3A*%20005%0A*NOMINAL%3A*%20Rp5.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Panel Card 6 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BASIC 6</h3>
+                    <div class="price">Rp6.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>6GB RAM</li>
+                        <li>90% CPU</li>
+                        <li>6GB DISK</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%206GB%0A*CPU%3A*%2090%25%0A*DISK%3A*%206GB%0A*ID%20PESANAN%3A*%20006%0A*NOMINAL%3A*%20Rp6.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Panel Card 7 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BASIC 7</h3>
+                    <div class="price">Rp7.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>7GB RAM</li>
+                        <li>100% CPU</li>
+                        <li>7GB DISK</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%207GB%0A*CPU%3A*%20100%25%0A*DISK%3A*%207GB%0A*ID%20PESANAN%3A*%20007%0A*NOMINAL%3A*%20Rp7.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Panel Card 8 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BASIC 8</h3>
+                    <div class="price">Rp8.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>8GB RAM</li>
+                        <li>100% CPU</li>
+                        <li>8GB DISK</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%208GB%0A*CPU%3A*%20100%25%0A*DISK%3A*%208GB%0A*ID%20PESANAN%3A*%20008%0A*NOMINAL%3A*%20Rp8.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Panel Card 9 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BASIC 9</h3>
+                    <div class="price">Rp9.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>9GB RAM</li>
+                        <li>100% CPU</li>
+                        <li>9GB DISK</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%209GB%0A*CPU%3A*%20100%25%0A*DISK%3A*%209GB%0A*ID%20PESANAN%3A*%20009%0A*NOMINAL%3A*%20Rp9.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Panel Card 10 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="550">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>BASIC 10</h3>
+                    <div class="price">Rp10.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>10GB RAM</li>
+                        <li>100% CPU</li>
+                        <li>10GB DISK</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%2010GB%0A*CPU%3A*%20100%25%0A*DISK%3A*%2010GB%0A*ID%20PESANAN%3A*%20010%0A*NOMINAL%3A*%20Rp10.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Card 3 (Recommended) -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="pricing-card">
+                <div class="recommended-badge">REKOMENDASI</div>
+                <div class="pricing-header">
+                    <h3>PREMIUM UNLIMITED</h3>
+                    <div class="price">Rp15.000</div>
+                </div>
+                <div class="pricing-body">
+                    <ul class="feature-list">
+                        <li>UNLIMITED RAM</li>
+                        <li>UNLIMITED CPU</li>
+                        <li>UNLIMITED DISK</li>
+                    </ul>
+                    <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%20UNLIMITED%0A*CPU%3A*%20UNLIMITED%0A*DISK%3A*%20UNLIMITED%0A*ID%20PESANAN%3A*%20006%0A*NOMINAL%3A*%20Rp15.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">PESAN SEKARANG</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+              <!-- Bot Section -->
+<div class="mb-5">
+    <h3 class="text-center mb-4 fw-bold text-primary" data-aos="fade-up">Script Bot WhatsApp Premium</h3>
+    <div class="row g-4">
+        <!-- Bot Card 1 -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+    <div class="pricing-card">
+     <div class="recommended-badge">REKOMENDASI</div>
+        <div class="pricing-header">
+            <h3>Sc RafatharCode Botz V9</h3>
+            <div class="price">Rp25.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Fitur Dasar</li>
+                <li>Multi Device</li>
+                <li>Dukungan Plugin</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Sc RafatharCode Botz V9%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp25.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+    <div class="pricing-card">
+     <div class="recommended-badge">REKOMENDASI</div>
+        <div class="pricing-header">
+            <h3>Sc RafatharCode Botz V10</h3>
+            <div class="price">Rp35.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Fitur Lengkap</li>
+                <li>Premium Plugin</li>
+                <li>Update Berkala</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Sc RafatharCode Botz V10%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp35.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+    <div class="pricing-card">
+     <div class="recommended-badge">REKOMENDASI</div>
+        <div class="pricing-header">
+            <h3>Sc RafatharCode Botz V11</h3>
+            <div class="price">Rp45.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Semua Fitur</li>
+                <li>Premium Support</li>
+                <li>Update Seumur Hidup</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Sc RafatharCode Botz V11%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp45.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+    <div class="pricing-card">
+     <div class="recommended-badge">REKOMENDASI</div>
+        <div class="pricing-header">
+            <h3>Reseller Script Premium</h3>
+            <div class="price">Rp65.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Semua Fitur</li>
+                <li>Premium Support</li>
+                <li>Add Database Sendiri</li>
+                <li>Bisa Jual Script Kembali</li>
+                <li>Update Seumur Hidup</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Reseller Script Premium%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp65.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+      </div>
+     </div>
+    </div>
+  </div>
+  
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+    <div class="pricing-card">
+        <div class="pricing-header">
+            <h3>Reseller Script Basic</h3>
+            <div class="price">Rp55.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Semua Fitur</li>
+                <li>Premium Support</li>
+                <li>Add Database Sendiri</li>
+                <li>Bisa Jual Script Kembali</li>
+                <li>Update 3 Kali</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Reseller Script Basic%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp55.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+      </div>
+     </div>
+    </div>
+  </div>
+
+<div class="mb-5">  
+    <h3 class="text-center mb-4 fw-bold text-primary" data-aos="fade-up">Premium Panel</h3>
+    <div class="row g-4">
+        <!-- Bot Card 1 -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+    <div class="pricing-card">
+     <div class="recommended-badge">REKOMENDASI</div>
+        <div class="pricing-header">
+            <h3>Admin Panel Premium</h3>
+            <div class="price">Rp25.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Bisa Open Panel</li>
+                <li>Bisa Open Reseller</li>
+                <li>Bisa Balik Modal</li>
+                <li>Masa Aktif Permanen</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Admin Panel Premium%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp25.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+    <div class="pricing-card">
+        <div class="pricing-header">
+            <h3>Admin Panel Basic</h3>
+            <div class="price">Rp20.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Bisa Open Panel</li>
+                <li>Bisa Open Reseller</li>
+                <li>Bisa Balik Modal</li>
+                <li>Masa Aktif 1 Bulan</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Admin Panel Basic%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp20.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+    <div class="pricing-card">
+     <div class="recommended-badge">REKOMENDASI</div>
+        <div class="pricing-header">
+            <h3>Reseller Panel Premium</h3>
+            <div class="price">Rp20.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Bisa Jual Panel</li>
+                <li>Bisa Buat Sepuasnya</li>
+                <li>Bisa Balik Modal</li>
+                <li>Masa Aktif Permanen</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Reseller Panel Premium%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp20.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+    <div class="pricing-card">
+        <div class="pricing-header">
+            <h3>Reseller Panel Basic</h3>
+            <div class="price">Rp15.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Bisa Jual Panel</li>
+                <li>Bisa Buat Sepuasnya</li>
+                <li>Bisa Balik Modal</li>
+                <li>Masa Aktif 1 Bulan</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Reseller Panel Basic%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp15.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+    <div class="pricing-card">
+     <div class="recommended-badge">REKOMENDASI</div>
+        <div class="pricing-header">
+            <h3>Owner Panel Premium</h3>
+            <div class="price">Rp40.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Bisa Open Reseller</li>
+                <li>Bisa Open Admin Panel</li>
+                <li>Bisa Balik Modal</li>
+                <li>Masa Aktif Permanen</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Owner Panel Premium%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp40.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+    <div class="pricing-card">
+        <div class="pricing-header">
+            <h3>Owner Panel Basic</h3>
+            <div class="price">Rp30.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Bisa Open Reseller</li>
+                <li>Bisa Open Admin Panel</li>
+                <li>Bisa Balik Modal</li>
+                <li>Masa Aktif 1 Bulan</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Owner Panel Basic%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp30.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+    <div class="pricing-card">
+     <div class="recommended-badge">REKOMENDASI</div>
+        <div class="pricing-header">
+            <h3>Pt Panel Premium</h3>
+            <div class="price">Rp45.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Bisa Open Reseller</li>
+                <li>Bisa Open Admin Panel</li>
+                <li>Bisa Open Owner Panel</li>
+                <li>Bisa Balik Modal</li>
+                <li>Masa Aktif Permanen</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Pt Panel Premium%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp45.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+    <div class="pricing-card">
+        <div class="pricing-header">
+            <h3>Pt Panel Basic</h3>
+            <div class="price">Rp40.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Bisa Open Reseller</li>
+                <li>Bisa Open Admin Panel</li>
+                <li>Bisa Open Owner Panel</li>
+                <li>Bisa Balik Modal</li>
+                <li>Masa Aktif Permanen</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Pt Panel Basic%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp40.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+      </div>
+     </div>
+    </div>
+  </div>
+
+<div class="mb-5">  
+    <h3 class="text-center mb-4 fw-bold text-primary" data-aos="fade-up">Premium Admin Group/Channel</h3>
+    <div class="row g-4">
+        <!-- Bot Card 1 -->
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+    <div class="pricing-card">
+     <div class="recommended-badge">REKOMENDASI</div>
+        <div class="pricing-header">
+            <h3>Admin Group Premium</h3>
+            <div class="price">Rp45.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Bisa Promosi Jualan</li>
+                <li>Bisa Masukin Nomor Anda Yang Lain</li>
+                <li>Bisa Balik Modal</li>
+                <li>Masa Aktif Permanen</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Admin Group Premium%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp45.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+    <div class="pricing-card">
+        <div class="pricing-header">
+            <h3>Admin Group Basic</h3>
+            <div class="price">Rp35.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Bisa Promosi Jualan</li>
+                <li>Bisa Masukin Nomor Anda Yang Lain</li>
+                <li>Bisa Balik Modal</li>
+                <li>Masa Aktif 1 Bulan</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Admin Group Basic%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp35.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+    <div class="pricing-card">
+     <div class="recommended-badge">REKOMENDASI</div>
+        <div class="pricing-header">
+            <h3>Admin Channel Premium</h3>
+            <div class="price">Rp45.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Bisa Promosi Produk Anda</li>
+                <li>Bisa Bisa Jualan Dichannel</li>
+                <li>Bisa Balik Modal</li>
+                <li>Masa Aktif Permanen</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Admin Channel Premium%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp45.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+    <div class="pricing-card">
+        <div class="pricing-header">
+            <h3>Admin Channel Basic</h3>
+            <div class="price">Rp35.000</div>
+        </div>
+        <div class="pricing-body">
+            <ul class="feature-list">
+                <li>Bisa Promosi Produk Anda</li>
+                <li>Bisa Bisa Jualan Dichannel</li>
+                <li>Bisa Balik Modal</li>
+                <li>Masa Aktif 1 Bulan</li>
+            </ul>
+            <a href="https://wa.me/6285864743922?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20Admin Channel Basic%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp35.000" class="btn-buy">PESAN SEKARANG</a>
+        </div>
+      </div>
+     </div>
+    </div>
+  </div>
+    </section>
+
+<!-- Metode Pembayaran -->
+<section id="payment-methods" class="py-5">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Metode Pembayaran</h2>
+            <p>Pilih metode pembayaran yang sesuai untuk Anda</p>
+        </div>
+        
+        <div class="row g-4">
+            <!-- DANA -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>DANA</h3>
+                    </div>
+                    <div class="pricing-body text-center">
+                        <div class="fs-1 mb-3"><i class="fab fa-cc-amazon-pay"></i></div>
+                        <p class="fs-4 fw-bold">08388329551</p>
+                        <button class="btn btn-primary copy-btn" data-text="08388329551">
+                            Salin Nomor
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- OVO -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>OVO</h3>
+                    </div>
+                    <div class="pricing-body text-center">
+                        <div class="fs-1 mb-3"><i class="fas fa-wallet"></i></div>
+                        <p class="fs-4 fw-bold">083835382136</p>
+                        <button class="btn btn-primary copy-btn" data-text="083835382136">
+                            Salin Nomor
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GOPAY -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>GOPAY</h3>
+                    </div>
+                    <div class="pricing-body text-center">
+                        <div class="fs-1 mb-3"><i class="fab fa-google-pay"></i></div>
+                        <p class="fs-4 fw-bold">083183432282</p>
+                        <button class="btn btn-primary copy-btn" data-text="083183432282">
+                            Salin Nomor
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BNI -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>BNI</h3>
+                    </div>
+                    <div class="pricing-body text-center">
+                        <div class="fs-1 mb-3"><i class="fas fa-university"></i></div>
+                        <p class="fs-4 fw-bold">1815068659</p>
+                        <button class="btn btn-primary copy-btn" data-text="1815068659">
+                            Salin Nomor
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- QRIS -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>QRIS</h3>
+                    </div>
+                    <div class="pricing-body text-center">
+                        <div class="fs-1 mb-3"><i class="fas fa-qrcode"></i></div>
+                        <a href="https://files.catbox.moe/yheioz.jpg" class="glightbox">
+                            <img src="https://files.catbox.moe/yheioz.jpg" alt="QR Code" class="img-fluid rounded mb-3" style="max-height: 150px;">
+                        </a>
+                        <div>
+                            <a href="https://files.catbox.moe/yheioz.jpg" download class="btn btn-primary">
+                                <i class="fas fa-download me-2"></i>Unduh QR
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Kontak Kami</h2>
+                <p>Hubungi Kami untuk Informasi Lebih Lanjut</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Lokasi</h4>
+                            <p>Jawa Barat, Indonesia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>rafatharuserbotv4@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telepon</h4>
+                            <p>+62 858-6474-3922</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg" placeholder="Nama Lengkap">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control form-control-lg" placeholder="Email">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg" placeholder="Subjek">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control form-control-lg" rows="4" placeholder="Pesan"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+     </div>
+  </div>
+</div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a href="#" class="footer-brand">RafatharCode</a>
+                    <p>Menyediakan solusi hosting dan layanan digital terbaik dengan kualitas premium dan harga terjangkau.</p>
+                </div>
+                
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-4">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Beranda</a></li>
+                        <li><a href="#pricing">Layanan</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4">Media Sosial</h5>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm me-2"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 RafatharCode. Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+    
+    <audio id="audio" src="https://files.catbox.moe/l9wavh.mp3" preload="auto" loop></audio>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9.0.3/swiper-bundle.min.js"></script>
+    
+    <script>
+    // Fungsi salin nomor
+document.querySelectorAll('.copy-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        const text = this.getAttribute('data-text');
+        navigator.clipboard.writeText(text).then(() => {
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-check me-2"></i>Tersalin!';
+            setTimeout(() => {
+                this.innerHTML = originalText;
+            }, 2000);
+        });
+    });
+});
+    // Kontrol Musik
+    const audio = document.getElementById('audio');
+    const musicToggle = document.getElementById('music-toggle');
+    
+    // Set volume default menjadi 50%
+    audio.volume = 0.5;
+    
+    // Fungsi untuk memutar/menjeda musik
+    function toggleMusic() {
+      if (audio.paused) {
+        audio.play().catch(error => {
+          console.log("Autoplay prevented: ", error);
+          // Tampilkan alert jika autoplay diblokir
+          alert("Mohon aktifkan autoplay untuk mendengarkan musik. Klik tombol musik untuk memutar.");
+        });
+        musicToggle.classList.remove('muted');
+      } else {
+        audio.pause();
+        musicToggle.classList.add('muted');
+      }
+    }
+    
+    // Event listener untuk tombol musik
+    if (musicToggle) {
+      musicToggle.addEventListener('click', toggleMusic);
+    }
+    
+    // Coba putar musik otomatis saat halaman dimuat
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        audio.play().catch(error => {
+          console.log("Autoplay prevented on load: ", error);
+        });
+      }, 1000);
+    });
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+        
+        // Initialize GLightbox
+        const lightbox = GLightbox();
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-sm');
+                navbar.style.padding = '10px 0';
+            } else {
+                navbar.classList.remove('shadow-sm');
+                navbar.style.padding = '15px 0';
+            }
+        });
+    </script>
+</body>
+</html>
